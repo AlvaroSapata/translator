@@ -1,35 +1,83 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useReducer } from "react";
+import "./App.css";
+import { Action, type State } from "./types";
 
-function App() {
-  const [count, setCount] = useState(0)
+// 1. Create an initial state
+const initialState: State = {
+  fromLanguage: "auto",
+  toLanguage: "string",
+  fromText: "string",
+  result: "string",
+  loading: false,
+};
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// 2. Create a reducer
+function reducer(state: State, action: Action) {
+  // Destructure the action object into type
+  const { type } = action;
+
+  // Handle the action INTERCHANGE_LANGUAGES type, return a new state in wich fromLanguage and toLanguage are swapped
+  if (type === "INTERCHANGE_LANGUAGES") {
+    return {
+      ...state,
+      fromLanguage: state.toLanguage,
+      toLanguage: state.fromLanguage,
+    };
+  }
+  // Handle the action SET_FROM_LANGUAGE type, return a new state in wich fromLanguage is set to the payload (from action)
+  if (type === "SET_FROM_LANGUAGE") {
+    return {
+      ...state,
+      fromLanguage: action.payload,
+    };
+  }
+  // Handle the action SET_TO_LANGUAGE type, return a new state in wich toLanguage is set to the payload (from action)
+  if (type === "SET_TO_LANGUAGE") {
+    return {
+      ...state,
+      toLanguage: action.payload,
+    };
+  }
+  // Handle the action SET_FROM_TEXT type, return a new state in wich fromText is set to the payload (from action)
+  if (type === "SET_FROM_TEXT") {
+    return {
+      ...state,
+      loading: true,
+      fromText: action.payload,
+      result: "",
+    };
+  }
+  // Handle the action SET_RESULT type, return a new state in wich result is set to the payload (from action)
+  if (type === "SET_RESULT") {
+    return {
+      ...state,
+      loading: false,
+      result: action.payload,
+    };
+  }
+  return state;
 }
 
-export default App
+function App() {
+  // 3. Use the useReducer hook
+
+  const [{ fromLanguage }, dispatch] = useReducer(reducer, initialState);
+
+  console.log({fromLanguage})
+
+  return (
+    <div className="App">
+      <h1>Google Translate</h1>
+      <button
+        onClick={() => {
+          dispatch({ type: "SET_FROM_LANGUAGE",payload: "es"});
+        }}
+      >
+        Cambiar a español
+      </button>
+    </div>
+  );
+}
+
+export default App;
