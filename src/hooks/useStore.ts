@@ -5,7 +5,7 @@ import { AUTO_LANGUAGE } from "./constants";
 // 1. Create an initial state
 const initialState: State = {
   fromLanguage: "auto",
-  toLanguage: "string",
+  toLanguage: "en",
   fromText: "string",
   result: "string",
   loading: false,
