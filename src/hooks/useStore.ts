@@ -33,6 +33,7 @@ function reducer(state: State, action: Action) {
     return {
       ...state,
       fromLanguage: action.payload,
+      result: "",
     };
   }
   // Handle the action SET_TO_LANGUAGE type, return a new state in wich toLanguage is set to the payload (from action)
