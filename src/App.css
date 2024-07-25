@@ -50,114 +50,114 @@ h2 {
   opacity: 0.8;
 }
 
-/* Móviles (hasta 480px) */
+/* MEDIA QUERIES */
+
 @media (max-width: 480px) {
   #root {
-    padding: 1rem; /* Reduce el padding para pantallas pequeñas */
+    padding: 1rem; 
   }
 
   h2 {
-    font-size: 1.5rem; /* Ajusta el tamaño del texto */
-    margin-bottom: 30px; /* Reduce el margen inferior */
+    font-size: 1.5rem; 
+    margin-bottom: 30px; 
   }
 
   .form-control,
   .form-select {
-    font-size: 0.9rem; /* Ajusta el tamaño del texto en los campos de formulario */
-    padding: 0.5rem; /* Reduce el padding interno */
+    font-size: 0.9rem;
+    padding: 0.5rem; 
   }
 
   .icon-container svg {
-    width: 20px; /* Ajusta el tamaño del ícono */
+    width: 20px; 
     height: 20px;
   }
 
   .Row {
-    padding: 0 0 10px; /* Ajusta el padding para pantallas más pequeñas */
-    border-bottom: var(--secondary-bg-color) 1px solid; /* Reduce el grosor del borde */
+    padding: 0 0 10px;
+    border-bottom: var(--secondary-bg-color) 1px solid; 
   }
 }
 
-/* Tabletas (481px a 768px) */
+/* 
 @media (min-width: 481px) and (max-width: 768px) {
   #root {
-    padding: 1.5rem; /* Ajusta el padding para pantallas de tamaño medio */
+    padding: 1.5rem; 
   }
 
   h2 {
-    font-size: 1.75rem; /* Ajusta el tamaño del texto */
-    margin-bottom: 40px; /* Ajusta el margen inferior */
+    font-size: 1.75rem; 
+    margin-bottom: 40px; 
   }
 
   .form-control,
   .form-select {
-    font-size: 1rem; /* Ajusta el tamaño del texto en los campos de formulario */
-    padding: 0.75rem; /* Ajusta el padding interno */
+    font-size: 1rem;
+    padding: 0.75rem; 
   }
 
   .icon-container svg {
-    width: 22px; /* Ajusta el tamaño del ícono */
+    width: 22px; 
     height: 22px;
   }
 
   .Row {
-    padding: 0 0 12px; /* Ajusta el padding */
-    border-bottom: var(--secondary-bg-color) 1.5px solid; /* Ajusta el grosor del borde */
+    padding: 0 0 12px; 
+    border-bottom: var(--secondary-bg-color) 1.5px solid; 
   }
 }
 
-/* Laptops (769px a 1024px) */
+
 @media (min-width: 769px) and (max-width: 1024px) {
   #root {
-    padding: 2rem; /* Ajusta el padding para pantallas grandes */
+    padding: 2rem; 
   }
 
   h2 {
-    font-size: 2rem; /* Ajusta el tamaño del texto */
-    margin-bottom: 50px; /* Ajusta el margen inferior */
+    font-size: 2rem; 
+    margin-bottom: 50px; 
   }
 
   .form-control,
   .form-select {
-    font-size: 1.1rem; /* Ajusta el tamaño del texto en los campos de formulario */
-    padding: 1rem; /* Ajusta el padding interno */
+    font-size: 1.1rem;
+    padding: 1rem; 
   }
 
   .icon-container svg {
-    width: 24px; /* Ajusta el tamaño del ícono */
+    width: 24px; 
     height: 24px;
   }
 
   .Row {
-    padding: 0 0 15px; /* Ajusta el padding */
-    border-bottom: var(--secondary-bg-color) 2px solid; /* Ajusta el grosor del borde */
+    padding: 0 0 15px; 
+    border-bottom: var(--secondary-bg-color) 2px solid; 
   }
 }
 
-/* Desktops (más de 1024px) */
 @media (min-width: 1024px) {
   #root {
-    padding: 2rem; /* Mantiene el padding para pantallas grandes */
+    padding: 2rem; 
   }
 
   h2 {
-    font-size: 2.5rem; /* Ajusta el tamaño del texto */
-    margin-bottom: 60px; /* Ajusta el margen inferior */
+    font-size: 2.5rem; 
+    margin-bottom: 60px; 
   }
 
   .form-control,
   .form-select {
-    font-size: 1.2rem; /* Ajusta el tamaño del texto en los campos de formulario */
-    padding: 1.25rem; /* Ajusta el padding interno */
+    font-size: 1.2rem;
+    padding: 1.25rem; 
   }
 
   .icon-container svg {
-    width: 24px; /* Ajusta el tamaño del ícono */
+    width: 24px; 
     height: 24px;
   }
 
   .Row {
-    padding: 0 0 20px; /* Ajusta el padding */
-    border-bottom: var(--secondary-bg-color) 2px solid; /* Mantiene el grosor del borde */
+    padding: 0 0 20px;  
+    border-bottom: var(--secondary-bg-color) 2px solid;
   }
-}
+} */
