@@ -79,7 +79,7 @@ function App() {
             disabled={fromLanguage === AUTO_LANGUAGE}
             onClick={interchangeLanguages}
           >
-            <span className="iconContainer">
+            <span className="icon-container">
               <ArrowsIcon />
             </span>
           </Button>
@@ -108,12 +108,12 @@ function App() {
                 }}
               >
                 <Button variant="link" onClick={handleClipboard}>
-                  <span className="iconContainer">
+                  <span className="icon-container">
                     <ClipboardIcon />
                   </span>
                 </Button>
                 <Button variant="link" onClick={handleSpeak}>
-                  <span className="iconContainer">
+                  <span className="icon-container">
                     <SpeakerIcon />
                   </span>
                 </Button>

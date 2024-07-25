@@ -12,7 +12,7 @@ export const LanguageSelector = ({ onChange, type, value }: Props) => {
   }
 
   return (
-    <Form.Select aria-label='Selecciona el idioma' onChange={handleChange} value={value}>
+    <Form.Select aria-label='Selecciona el idioma' onChange={handleChange} value={value} className='custom-select'>
       {type === SectionType.From && <option value={AUTO_LANGUAGE}>Detectar idioma</option>}
 
       {Object.entries(SUPPORTED_LANGUAGES).map(([key, literal]) => (

@@ -1,7 +1,7 @@
 :root {
-  --primary-bg-color: #1F1F1F;
+  --primary-bg-color: #1f1f1f;
   --secondary-bg-color: #303134;
-  --highlight-color: #76ABAE;
+  --highlight-color: #76abae;
   --text-color-main: #fffdfd;
   --text-color-secondary: #5993f1;
   --text-color-third: #757575;
@@ -10,45 +10,154 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  
 }
 
-body{
+body {
   background-color: var(--primary-bg-color);
   color: var(--text-color-main);
 }
 
-h2{
+h2 {
   color: var(--text-color-main);
   margin-bottom: 50px;
 }
 
-.form-control{
-  background:  var(--primary-bg-color); 
+.form-control {
+  background: var(--primary-bg-color);
+}
 
-} 
-
-.form-select{
-  background:  var(--primary-bg-color);
+.form-select {
+  background: var(--primary-bg-color);
   color: var(--text-color-secondary);
   border-color: var(--text-color-third);
 }
 
-.Row{
-
-  padding:0 0 15px;
+.Row {
+  padding: 0 0 15px;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   border-bottom: var(--secondary-bg-color) 2px solid;
 }
 
-.iconContainer svg {
-  fill: var(--text-color-third); 
-  transition: fill 0.3s, transform 0.3s; 
+.icon-container svg {
+  fill: var(--text-color-third);
+  transition: fill 0.3s, transform 0.3s;
 }
 
-.iconContainer:hover svg {
-  fill: var(--text-color-main); 
+.icon-container:hover svg {
+  fill: var(--text-color-main);
   transform: scale(1.1);
-  opacity: 0.8; 
+  opacity: 0.8;
+}
+
+/* Móviles (hasta 480px) */
+@media (max-width: 480px) {
+  #root {
+    padding: 1rem; /* Reduce el padding para pantallas pequeñas */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto */
+    margin-bottom: 30px; /* Reduce el margen inferior */
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.9rem; /* Ajusta el tamaño del texto en los campos de formulario */
+    padding: 0.5rem; /* Reduce el padding interno */
+  }
+
+  .icon-container svg {
+    width: 20px; /* Ajusta el tamaño del ícono */
+    height: 20px;
+  }
+
+  .Row {
+    padding: 0 0 10px; /* Ajusta el padding para pantallas más pequeñas */
+    border-bottom: var(--secondary-bg-color) 1px solid; /* Reduce el grosor del borde */
+  }
+}
+
+/* Tabletas (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  #root {
+    padding: 1.5rem; /* Ajusta el padding para pantallas de tamaño medio */
+  }
+
+  h2 {
+    font-size: 1.75rem; /* Ajusta el tamaño del texto */
+    margin-bottom: 40px; /* Ajusta el margen inferior */
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 1rem; /* Ajusta el tamaño del texto en los campos de formulario */
+    padding: 0.75rem; /* Ajusta el padding interno */
+  }
+
+  .icon-container svg {
+    width: 22px; /* Ajusta el tamaño del ícono */
+    height: 22px;
+  }
+
+  .Row {
+    padding: 0 0 12px; /* Ajusta el padding */
+    border-bottom: var(--secondary-bg-color) 1.5px solid; /* Ajusta el grosor del borde */
+  }
+}
+
+/* Laptops (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #root {
+    padding: 2rem; /* Ajusta el padding para pantallas grandes */
+  }
+
+  h2 {
+    font-size: 2rem; /* Ajusta el tamaño del texto */
+    margin-bottom: 50px; /* Ajusta el margen inferior */
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 1.1rem; /* Ajusta el tamaño del texto en los campos de formulario */
+    padding: 1rem; /* Ajusta el padding interno */
+  }
+
+  .icon-container svg {
+    width: 24px; /* Ajusta el tamaño del ícono */
+    height: 24px;
+  }
+
+  .Row {
+    padding: 0 0 15px; /* Ajusta el padding */
+    border-bottom: var(--secondary-bg-color) 2px solid; /* Ajusta el grosor del borde */
+  }
+}
+
+/* Desktops (más de 1024px) */
+@media (min-width: 1024px) {
+  #root {
+    padding: 2rem; /* Mantiene el padding para pantallas grandes */
+  }
+
+  h2 {
+    font-size: 2.5rem; /* Ajusta el tamaño del texto */
+    margin-bottom: 60px; /* Ajusta el margen inferior */
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 1.2rem; /* Ajusta el tamaño del texto en los campos de formulario */
+    padding: 1.25rem; /* Ajusta el padding interno */
+  }
+
+  .icon-container svg {
+    width: 24px; /* Ajusta el tamaño del ícono */
+    height: 24px;
+  }
+
+  .Row {
+    padding: 0 0 20px; /* Ajusta el padding */
+    border-bottom: var(--secondary-bg-color) 2px solid; /* Mantiene el grosor del borde */
+  }
 }
