@@ -1,17 +1,54 @@
+:root {
+  --primary-bg-color: #1F1F1F;
+  --secondary-bg-color: #303134;
+  --highlight-color: #76ABAE;
+  --text-color-main: #fffdfd;
+  --text-color-secondary: #5993f1;
+  --text-color-third: #757575;
+}
 #root {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
+  
 }
 
-/* body{
-  background-color: #222831;
+body{
+  background-color: var(--primary-bg-color);
+  color: var(--text-color-main);
 }
+
 h2{
-  color: #eeeeee;
+  color: var(--text-color-main);
+  margin-bottom: 50px;
 }
 
-.form-control, .textarea{
-  background: #31363F;
-  color: #76ABAE;
-} */
+.form-control{
+  background:  var(--primary-bg-color); 
+
+} 
+
+.form-select{
+  background:  var(--primary-bg-color);
+  color: var(--text-color-secondary);
+  border-color: var(--text-color-third);
+}
+
+.Row{
+
+  padding:0 0 15px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom: var(--secondary-bg-color) 2px solid;
+}
+
+.iconContainer svg {
+  fill: var(--text-color-third); 
+  transition: fill 0.3s, transform 0.3s; 
+}
+
+.iconContainer:hover svg {
+  fill: var(--text-color-main); 
+  transform: scale(1.1);
+  opacity: 0.8; 
+}
