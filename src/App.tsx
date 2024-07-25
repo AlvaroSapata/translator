@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Button, Stack } from "react-bootstrap";
 import "./App.css";
 import { useStore } from "./hooks/useStore";
-import { AUTO_LANGUAGE } from "./hooks/constants";
+import { AUTO_LANGUAGE } from "../constants";
 import { ArrowsIcon } from "./components/Icons";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { SectionType } from "./types.d";
@@ -26,7 +26,8 @@ function App() {
   } = useStore();
 
   useEffect(() => {
-    if (fromText == "") return;
+    if (fromText === "") return;
+    
     translate({ fromLanguage, toLanguage, text: fromText })
       .then((result) => {
         if (result == null) return;

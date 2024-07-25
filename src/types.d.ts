@@ -1,4 +1,4 @@
-import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from "./hooks/constants";
+import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from "../constants";
 
 // Define the type of Language fron our constants file
 export type Language = keyof typeof SUPPORTED_LANGUAGES;

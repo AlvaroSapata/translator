@@ -1,95 +1,112 @@
-import { useReducer } from "react";
-import { Action, FromLanguage, Language, type State } from "../types.d";
-import { AUTO_LANGUAGE } from "./constants";
+import { useReducer } from 'react'
+import { AUTO_LANGUAGE } from '../../constants'
+import { type FromLanguage, type Language, type Action, type State } from '../types'
 
-// 1. Create an initial state
+// 1. Create a initialState
 const initialState: State = {
-  fromLanguage: "auto",
-  toLanguage: "en",
-  fromText: "",
-  result: "",
-  loading: false,
-};
+  fromLanguage: 'auto',
+  toLanguage: 'en',
+  fromText: '',
+  result: '',
+  loading: false
+}
 
 // 2. Create a reducer
-function reducer(state: State, action: Action) {
-  // Destructure the action object into type
-  const { type } = action;
+function reducer (state: State, action: Action) {
+  const { type } = action
 
-  // Handle the action INTERCHANGE_LANGUAGES type, return a new state in wich fromLanguage and toLanguage are swapped
-  if (type === "INTERCHANGE_LANGUAGES") {
-    // Logic inside reducer, good practice to avoid doing it in components
-    if (state.fromLanguage === AUTO_LANGUAGE) {
-      return state;
-    }
+  if (type === 'INTERCHANGE_LANGUAGES') {
+    // lógica del estado dentro del reducer
+    // porque lo evitamos en los componentes
+    if (state.fromLanguage === AUTO_LANGUAGE) return state
+
+    const loading = state.fromText !== ''
+
     return {
       ...state,
+      loading,
+      result: '',
       fromLanguage: state.toLanguage,
-      toLanguage: state.fromLanguage,
-    };
+      toLanguage: state.fromLanguage
+    }
   }
-  // Handle the action SET_FROM_LANGUAGE type, return a new state in wich fromLanguage is set to the payload (from action)
-  if (type === "SET_FROM_LANGUAGE") {
+
+  if (type === 'SET_FROM_LANGUAGE') {
+    if (state.fromLanguage === action.payload) return state
+
+    const loading = state.fromText !== ''
+
     return {
       ...state,
       fromLanguage: action.payload,
-      result: "",
-    };
+      result: '',
+      loading
+    }
   }
-  // Handle the action SET_TO_LANGUAGE type, return a new state in wich toLanguage is set to the payload (from action)
-  if (type === "SET_TO_LANGUAGE") {
+
+  if (type === 'SET_TO_LANGUAGE') {
+    if (state.toLanguage === action.payload) return state
+    const loading = state.fromText !== ''
+
     return {
       ...state,
       toLanguage: action.payload,
-    };
+      result: '',
+      loading
+    }
   }
-  // Handle the action SET_FROM_TEXT type, return a new state in wich fromText is set to the payload (from action)
-  if (type === "SET_FROM_TEXT") {
+
+  if (type === 'SET_FROM_TEXT') {
+    const loading = action.payload !== ''
+
     return {
       ...state,
-      loading: true,
+      loading,
       fromText: action.payload,
-      result: "",
-    };
+      result: ''
+    }
   }
-  // Handle the action SET_RESULT type, return a new state in wich result is set to the payload (from action)
-  if (type === "SET_RESULT") {
+
+  if (type === 'SET_RESULT') {
     return {
       ...state,
       loading: false,
-      result: action.payload,
-    };
+      result: action.payload
+    }
   }
-  return state;
+
+  return state
 }
 
-export function useStore() {
-  // 3. Use the useReducer hook
-
-  const [{ fromLanguage, toLanguage, fromText, result, loading }, dispatch] =
-    useReducer(reducer, initialState);
-
-  // 4. Create dispatch functions
+export function useStore () {
+  // 3. usar el hook useReducer
+  const [{
+    fromLanguage,
+    toLanguage,
+    fromText,
+    result,
+    loading
+  }, dispatch] = useReducer(reducer, initialState)
 
   const interchangeLanguages = () => {
-    dispatch({ type: "INTERCHANGE_LANGUAGES" });
-  };
+    dispatch({ type: 'INTERCHANGE_LANGUAGES' })
+  }
 
   const setFromLanguage = (payload: FromLanguage) => {
-    dispatch({ type: "SET_FROM_LANGUAGE", payload });
-  };
+    dispatch({ type: 'SET_FROM_LANGUAGE', payload })
+  }
 
   const setToLanguage = (payload: Language) => {
-    dispatch({ type: "SET_TO_LANGUAGE", payload });
-  };
+    dispatch({ type: 'SET_TO_LANGUAGE', payload })
+  }
 
   const setFromText = (payload: string) => {
-    dispatch({ type: "SET_FROM_TEXT", payload });
-  };
+    dispatch({ type: 'SET_FROM_TEXT', payload })
+  }
 
   const setResult = (payload: string) => {
-    dispatch({ type: "SET_RESULT", payload });
-  };
+    dispatch({ type: 'SET_RESULT', payload })
+  }
 
   return {
     fromLanguage,
@@ -101,6 +118,6 @@ export function useStore() {
     setFromLanguage,
     setToLanguage,
     setFromText,
-    setResult,
-  };
+    setResult
+  }
 }

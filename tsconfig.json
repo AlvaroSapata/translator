@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/assets/types.d.ts"], // Add the correct path to the "include" array
+  "include": ["src", "src/assets/types.d.ts", "constants.ts"], // Add the correct path to the "include" array
   "references": [{ "path": "./tsconfig.node.json" }]
 }
