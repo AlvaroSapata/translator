@@ -67,7 +67,7 @@ This will open the application in your browser at http://localhost:3000.
 
 Simply input text for translation, and get real-time translations in the selected language. You can select the input language or use the auto-detect mode
 
-![App](/Usage1.png)
+![Home Screen](public/Usage1.png)
 
 ### Functionalities
 
