@@ -13,20 +13,3 @@ export function useDebounce<T> (value: T, delay = 500) {
 
   return debouncedValue
 }
-
-/*
-línea del tiempo de cómo se comporta el usuario:
-
-0ms -> user type - 'h' -> value
-   useEffect ... L7
-150ms -> user type 'he' -> value
-   clear useEffect - L11
-   useEffect ... L7
-300ms -> user type 'hel'  -> value
-   clear useEffect - L11
-   useEffect ... L7
-400ms -> user type 'hell'  -> value
-    clear useEffect - L11
-    useEffect ... L7
-900ms -> L8 -> setDebouncedValue('hell') -> debounceValue L14
-*/

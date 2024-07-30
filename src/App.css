@@ -5,7 +5,9 @@
   --text-color-main: #fffdfd;
   --text-color-secondary: #5993f1;
   --text-color-third: #757575;
+  --textarea-bg-color: #0000ff; /* Color azul para el fondo del textarea */
 }
+
 #root {
   max-width: 800px;
   margin: 0 auto;
@@ -48,6 +50,35 @@ h2 {
   fill: var(--text-color-main);
   transform: scale(1.1);
   opacity: 0.8;
+}
+
+/* Nuevas reglas para cambiar el fondo del textarea */
+textarea {
+  background-color: var(--secondary-bg-color) !important;
+  color: var(--text-color-main);
+}
+
+textarea:focus {
+  color: var(--text-color-main);
+  border-color: var(--text-color-secondary);
+}
+
+/* Estilos para los placeholders */
+textarea::placeholder {
+  color: var(--text-color-third) !important; /* Blanco */
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.delete-button {
+  position: relative;
+  left: -70px;
+  margin-top: 5px;
 }
 
 /* MEDIA QUERIES */

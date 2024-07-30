@@ -4,7 +4,12 @@ import { useDebounce } from "./hooks/useDebounce";
 import { Container, Row, Col, Button, Stack } from "react-bootstrap";
 
 import "./App.css";
-import { ArrowsIcon, ClipboardIcon, SpeakerIcon } from "./components/Icons";
+import {
+  ArrowsIcon,
+  ClipboardIcon,
+  SpeakerIcon,
+  DeleteIcon,
+} from "./components/Icons";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { TextArea } from "./components/TextArea";
 import { AUTO_LANGUAGE, VOICE_FOR_LANGUAGE } from "../constants";
@@ -24,6 +29,7 @@ function App() {
     setToLanguage,
     setFromText,
     setResult,
+    clearText,
   } = useStore();
 
   const debouncedFromText = useDebounce(fromText, 300);
@@ -73,7 +79,7 @@ function App() {
           </Stack>
         </Col>
 
-        <Col xs="auto">
+        <Col xs="auto" className="button-column">
           <Button
             variant="link"
             disabled={fromLanguage === AUTO_LANGUAGE}
@@ -83,6 +89,14 @@ function App() {
               <ArrowsIcon />
             </span>
           </Button>
+
+          {fromText && (
+            <Button variant="link" onClick={clearText} className="delete-button">
+              <span className="icon-container">
+                <DeleteIcon />
+              </span>
+            </Button>
+          )}
         </Col>
 
         <Col>

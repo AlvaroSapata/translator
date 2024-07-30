@@ -75,6 +75,15 @@ function reducer (state: State, action: Action) {
     }
   }
 
+  if (type === 'CLEAR_TEXT') {
+    return {
+      ...state,
+      fromText: '',
+      result: '',
+      loading: false
+    }
+  }
+
   return state
 }
 
@@ -108,6 +117,10 @@ export function useStore () {
     dispatch({ type: 'SET_RESULT', payload })
   }
 
+  const clearText = () => {
+    dispatch({ type: 'CLEAR_TEXT' })
+  }
+
   return {
     fromLanguage,
     toLanguage,
@@ -118,6 +131,7 @@ export function useStore () {
     setFromLanguage,
     setToLanguage,
     setFromText,
-    setResult
+    setResult,
+    clearText
   }
 }

@@ -18,6 +18,7 @@ export type Action =
   | { type: 'SET_TO_LANGUAGE', payload: Language }
   | { type: 'SET_FROM_TEXT', payload: string }
   | { type: 'SET_RESULT', payload: string }
+  | { type: 'CLEAR_TEXT' }
 
 export enum SectionType {
   From = 'from',
