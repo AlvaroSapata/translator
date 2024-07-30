@@ -3,7 +3,7 @@
   --secondary-bg-color: #303134;
   --highlight-color: #76abae;
   --text-color-main: #fffdfd;
-  --text-color-secondary: #5993f1;
+  --text-color-secondary: #99b4df;
   --text-color-third: #757575;
   --textarea-bg-color: #0000ff; /* Color azul para el fondo del textarea */
 }
@@ -21,11 +21,12 @@ body {
 
 h2 {
   color: var(--text-color-main);
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .form-control {
   background: var(--primary-bg-color);
+  padding-right: 1.6rem;
 }
 
 .form-select {
@@ -36,14 +37,16 @@ h2 {
 
 .Row {
   padding: 0 0 15px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-bottom: var(--secondary-bg-color) 2px solid;
+  /* border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px; */
+  border-bottom: var(--secondary-bg-color) 1px solid;
+  /* background-color: yellow; */
 }
 
 .icon-container svg {
   fill: var(--text-color-third);
   transition: fill 0.3s, transform 0.3s;
+  /* background-color: violet; */
 }
 
 .icon-container:hover svg {
@@ -77,36 +80,48 @@ textarea::placeholder {
 
 .delete-button {
   position: relative;
-  left: -70px;
-  margin-top: 5px;
+  left: -52px;
+  margin-top: 3px;
+  /* background-color: #0000ff; */
+  height: 40px;
+  width: 40px;
 }
 
+.delete-button span {
+  display: flex;
+  margin: auto;
+}
+
+.button-column {
+  /* background-color: #0000ff !important; */
+  padding: 0;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 480px) {
   #root {
-    padding: 1rem; 
+    padding: 1rem;
   }
 
   h2 {
-    font-size: 1.5rem; 
-    margin-bottom: 30px; 
+    font-size: 1.5rem;
+    margin-bottom: 30px;
   }
 
   .form-control,
   .form-select {
     font-size: 0.9rem;
-    padding: 0.5rem; 
+    padding: 0.5rem;
   }
 
   .icon-container svg {
-    width: 20px; 
+    width: 20px;
     height: 20px;
   }
 
   .Row {
     padding: 0 0 10px;
-    border-bottom: var(--secondary-bg-color) 1px solid; 
+    border-bottom: var(--secondary-bg-color) 1px solid;
   }
 }
 

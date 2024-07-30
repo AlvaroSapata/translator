@@ -91,7 +91,11 @@ function App() {
           </Button>
 
           {fromText && (
-            <Button variant="link" onClick={clearText} className="delete-button">
+            <Button
+              variant="link"
+              onClick={clearText}
+              className="delete-button"
+            >
               <span className="icon-container">
                 <DeleteIcon />
               </span>
