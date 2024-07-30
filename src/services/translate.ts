@@ -57,7 +57,7 @@ export async function translate ({
   const toCode = SUPPORTED_LANGUAGES[toLanguage as keyof typeof SUPPORTED_LANGUAGES]
 
   const completion = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4o-mini',
     messages: [
       ...messages,
       {
