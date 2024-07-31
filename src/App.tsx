@@ -1,3 +1,5 @@
+// App.tsx
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from "react";
 import { useDebounce } from "./hooks/useDebounce";
@@ -9,6 +11,7 @@ import {
   ClipboardIcon,
   SpeakerIcon,
   DeleteIcon,
+  MicrophoneIcon,
 } from "./components/Icons";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { TextArea } from "./components/TextArea";
@@ -58,6 +61,45 @@ function App() {
     speechSynthesis.speak(utterance);
   };
 
+  const handleVoiceInput = () => {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = VOICE_FOR_LANGUAGE[fromLanguage];
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+  
+    recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const speechResult = event.results[0][0].transcript;
+      setFromText(speechResult);
+    };
+  
+    recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      switch (event.error) {
+        case 'aborted':
+          console.warn("Speech recognition was aborted");
+          break;
+        case 'no-speech':
+          console.warn("No speech was detected. Please try again.");
+          break;
+        case 'audio-capture':
+          console.warn("No audio capture device found. Please check your microphone.");
+          break;
+        case 'not-allowed':
+          console.warn("Permission to use the microphone was denied.");
+          break;
+        default:
+          console.error("Speech recognition error", event.error);
+          break;
+      }
+    };
+  
+    recognition.onend = () => {
+      console.log("Speech recognition service disconnected");
+    };
+  
+    recognition.start();
+  };
+  
+
   return (
     <Container fluid>
       <h2>Google Translate</h2>
@@ -91,6 +133,11 @@ function App() {
                 >
                   <span className="icon-container">
                     <SpeakerIcon />
+                  </span>
+                </Button>
+                <Button variant="link" onClick={handleVoiceInput}>
+                  <span className="icon-container">
+                    <MicrophoneIcon />
                   </span>
                 </Button>
               </div>
