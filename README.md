@@ -6,10 +6,11 @@ This project is a React-based translation application that allows users to selec
 ## Features
 
 - Select source and target languages.
-- Real-time translation of input text.
+- Real-time translation of input text and voice.
 - Swap source and target languages.
 - Copy translation to the clipboard.
-- Read translation aloud.
+- Read input and output messages aloud.
+- Microphone to detect voice and transcript it
 - Button to clear the input text.
 
 ## Technologies Used
@@ -65,7 +66,7 @@ This will open the application in your browser at http://localhost:3000.
 
 ## Usage
 
-Simply input text for translation, and get real-time translations in the selected language. You can select the input language or use the auto-detect mode
+Simply input text for translation, typing or by voice, and get real-time translations in the selected language. You can select the input language or use the auto-detect mode
 
 ![Home Screen](public/Usage1.png)
 
@@ -79,6 +80,15 @@ The clear text button appears only when there is text to clear and is positioned
 The read-aloud button reads the translation using the SpeechSynthesis API.
 #### Copy to Clipboard
 The copy to clipboard button copies the translation to the system clipboard.
+### Voice Input
+The voice input functionality enables you to dictate text using your voice. Here's how it works:
+- **Start Voice Input**: Click the microphone icon to begin voice input.
+- **Speech Recognition**: The app uses the Web Speech API to convert your spoken words into text.
+- **Error Handling**: If there are issues with the speech recognition, appropriate error messages will be displayed. Common errors include:
+  - **Aborted**: The speech recognition process was aborted.
+  - **No Speech**: No speech was detected.
+  - **Audio Capture**: No audio capture device was found.
+  - **Not Allowed**: Permission to use the microphone was denied.
 
 ## Contributing
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
