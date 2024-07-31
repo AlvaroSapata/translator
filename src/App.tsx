@@ -51,9 +51,9 @@ function App() {
     navigator.clipboard.writeText(result).catch(() => {});
   };
 
-  const handleSpeak = () => {
-    const utterance = new SpeechSynthesisUtterance(result);
-    utterance.lang = VOICE_FOR_LANGUAGE[toLanguage];
+  const handleSpeak = (text: string, language: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = VOICE_FOR_LANGUAGE[language];
     utterance.rate = 0.9;
     speechSynthesis.speak(utterance);
   };
@@ -71,11 +71,30 @@ function App() {
               onChange={setFromLanguage}
             />
 
-            <TextArea
-              type={SectionType.From}
-              value={fromText}
-              onChange={setFromText}
-            />
+            <div style={{ position: "relative" }}>
+              <TextArea
+                type={SectionType.From}
+                value={fromText}
+                onChange={setFromText}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  bottom: 0,
+                  display: "flex",
+                }}
+              >
+                <Button
+                  variant="link"
+                  onClick={() => handleSpeak(fromText, fromLanguage)}
+                >
+                  <span className="icon-container">
+                    <SpeakerIcon />
+                  </span>
+                </Button>
+              </div>
+            </div>
           </Stack>
         </Col>
 
@@ -130,7 +149,10 @@ function App() {
                     <ClipboardIcon />
                   </span>
                 </Button>
-                <Button variant="link" onClick={handleSpeak}>
+                <Button
+                  variant="link"
+                  onClick={() => handleSpeak(result, toLanguage)}
+                >
                   <span className="icon-container">
                     <SpeakerIcon />
                   </span>
