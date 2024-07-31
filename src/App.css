@@ -125,85 +125,28 @@ textarea::placeholder {
   }
 }
 
-/* 
-@media (min-width: 481px) and (max-width: 768px) {
-  #root {
-    padding: 1.5rem; 
+@media (max-width: 450px) {
+  body {
+    position: relative;
+    top: 0px;
   }
-
-  h2 {
-    font-size: 1.75rem; 
-    margin-bottom: 40px; 
+  html {
+    background-color: var(--primary-bg-color) !important;
   }
-
-  .form-control,
-  .form-select {
-    font-size: 1rem;
-    padding: 0.75rem; 
-  }
-
-  .icon-container svg {
-    width: 22px; 
-    height: 22px;
-  }
-
   .Row {
-    padding: 0 0 12px; 
-    border-bottom: var(--secondary-bg-color) 1.5px solid; 
+    display: flex;
+    flex-direction: column;
+  }
+  .delete-button {
+    position: relative;
+    left: 0px;
+  }
+  .button-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #root {
+    width: 500px;
   }
 }
-
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  #root {
-    padding: 2rem; 
-  }
-
-  h2 {
-    font-size: 2rem; 
-    margin-bottom: 50px; 
-  }
-
-  .form-control,
-  .form-select {
-    font-size: 1.1rem;
-    padding: 1rem; 
-  }
-
-  .icon-container svg {
-    width: 24px; 
-    height: 24px;
-  }
-
-  .Row {
-    padding: 0 0 15px; 
-    border-bottom: var(--secondary-bg-color) 2px solid; 
-  }
-}
-
-@media (min-width: 1024px) {
-  #root {
-    padding: 2rem; 
-  }
-
-  h2 {
-    font-size: 2.5rem; 
-    margin-bottom: 60px; 
-  }
-
-  .form-control,
-  .form-select {
-    font-size: 1.2rem;
-    padding: 1.25rem; 
-  }
-
-  .icon-container svg {
-    width: 24px; 
-    height: 24px;
-  }
-
-  .Row {
-    padding: 0 0 20px;  
-    border-bottom: var(--secondary-bg-color) 2px solid;
-  }
-} */
