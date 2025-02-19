@@ -2,7 +2,10 @@ import { useReducer } from 'react'
 import { AUTO_LANGUAGE } from '../../constants'
 import { type FromLanguage, type Language, type Action, type State } from '../types'
 
-// 1. Create a initialState
+/**
+ * 1. Definir el estado inicial con `State` tipado.
+ * Esto asegura que `initialState` cumpla con la estructura definida en el tipo `State`.
+ */
 const initialState: State = {
   fromLanguage: 'auto',
   toLanguage: 'en',
@@ -11,13 +14,18 @@ const initialState: State = {
   loading: false
 }
 
-// 2. Create a reducer
-function reducer (state: State, action: Action) {
+/**
+ * 2. Crear un reducer tipado con `State` y `Action`.
+ * TypeScript verifica que `state` tenga la forma correcta y que `action.type` sea válido.
+ */
+function reducer(state: State, action: Action): State {
   const { type } = action
 
   if (type === 'INTERCHANGE_LANGUAGES') {
-    // lógica del estado dentro del reducer
-    // porque lo evitamos en los componentes
+    /**
+     * Evitamos modificar el estado en los componentes y centralizamos la lógica aquí.
+     * Esto mantiene la lógica de estado separada de la interfaz de usuario.
+     */
     if (state.fromLanguage === AUTO_LANGUAGE) return state
 
     const loading = state.fromText !== ''
@@ -87,8 +95,12 @@ function reducer (state: State, action: Action) {
   return state
 }
 
-export function useStore () {
-  // 3. usar el hook useReducer
+/**
+ * 3. Hook personalizado `useStore` que encapsula `useReducer`.
+ * - Devuelve el estado junto con funciones de actualización.
+ * - Garantiza que `dispatch` maneje únicamente acciones definidas en `Action`.
+ */
+export function useStore() {
   const [{
     fromLanguage,
     toLanguage,
@@ -97,6 +109,10 @@ export function useStore () {
     loading
   }, dispatch] = useReducer(reducer, initialState)
 
+  /**
+   * Funciones `dispatch` que envían acciones con tipos específicos.
+   * TypeScript garantiza que los `payload` sean del tipo correcto.
+   */
   const interchangeLanguages = () => {
     dispatch({ type: 'INTERCHANGE_LANGUAGES' })
   }
