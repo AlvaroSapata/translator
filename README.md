@@ -1,6 +1,6 @@
 # Google Translator gpt - 4omini
 ![Home Screen](public/Usage1.png)
-![Home Screen Mobile](public/Usage2.png)
+![Home Screen Mobile](public/usage2.png)
 This project is a React-based translation application that allows users to select source and target languages, input text for translation, and get real-time translations. Additional features include copying to the clipboard and reading aloud.
 
 
